@@ -1,0 +1,139 @@
+[
+	{
+		"Id": 144,
+		"Name": "Abuja International Airport",
+		"Code": "ABV",
+		"CountryCode": "NG",
+		"StateCode": "ABV",
+		"StateName": "Abuja",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+	{
+		"Id": 144,
+		"Name": "Akure Airport",
+		"Code": "AKR",
+		"CountryCode": "NG",
+		"StateCode": "AKR",
+		"StateName": "Akure",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+
+	{
+		"Id": 769,
+		"Name": "Bauchi Airport",
+		"Code": "BCU",
+		"CountryCode": "NG",
+		"StateCode": "BCU",
+		"StateName": "Bauchi",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+	{
+		"Id": 855,
+		"Name": "Benin City Airport",
+		"Code": "BNI",
+		"CountryCode": "NG",
+		"StateCode": "BNI",
+		"StateName": "Benin City",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+	{
+		"Id": 1303,
+		"Name": "Calabar Airport",
+		"Code": "CBQ",
+		"CountryCode": "NG",
+		"StateCode": "CBQ",
+		"StateName": "Calabar",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+	{
+		"Id": 3495,
+		"Name": "Ibadan Airport",
+		"Code": "IBA",
+		"CountryCode": "NG",
+		"StateCode": "IBA",
+		"StateName": "Ibadan",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+
+	{
+		"Id": 3806,
+		"Name": "Jos Airport (Yakubu Gowon Airport)",
+		"Code": "JOS",
+		"CountryCode": "NG",
+		"StateCode": "JOS",
+		"StateName": "Jos",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+
+	{
+		"Id": 4004,
+		"Name": "Katsina Airport",
+		"Code": "DKA",
+		"CountryCode": "NG",
+		"StateCode": "DKA",
+		"StateName": "Katsina",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+
+	{
+		"Id": 4983,
+		"Name": "Makurdi Airport",
+		"Code": "MDI",
+		"CountryCode": "NG",
+		"StateCode": "MDI",
+		"StateName": "Makurdi, Benue State",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+	{
+		"Id": 293,
+		"Name": "Muritala International Airport",
+		"Code": "LOS",
+		"CountryCode": "NG",
+		"StateCode": "LOS",
+		"StateName": "Lagos",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+
+	{
+		"Id": 6691,
+		"Name": "Port Harcourt City Airport",
+		"Code": "PHG",
+		"CountryCode": "NG",
+		"StateCode": "PHG",
+		"StateName": "Port Harcourt City",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	},
+	{
+		"Id": 8977,
+		"Name": "Warri Airport",
+		"Code": "QRW",
+		"CountryCode": "NG",
+		"StateCode": "QRW",
+		"StateName": "Warri",
+		"Latitude": null,
+		"Longitude": null,
+		"IsLocal": true
+	}
+]
