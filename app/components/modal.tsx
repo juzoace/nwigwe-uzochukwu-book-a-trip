@@ -1,8 +1,8 @@
 // components/SlidableModal.js
-import React from 'react';
+import React from "react";
 
 const Modal = ({ data, onSelect, onClose }) => {
-  console.log(data)
+  console.log(data);
   return (
     <div className="fixed inset-0 z-50 overflow-hidden ">
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -11,20 +11,31 @@ const Modal = ({ data, onSelect, onClose }) => {
         </div>
 
         {/* Use different classes for mobile and larger screens */}
-        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+        <span
+          className="hidden sm:inline-block sm:align-middle sm:h-screen"
+          aria-hidden="true"
+        >
           &#8203;
         </span>
 
         <div
           className={`${
             // Apply different classes based on screen size
-            window.innerWidth <= 640 ? ' fixed inset-0 h-screen w-screen rounded-2xl ' : 'inline-block align-bottom sm:max-w-lg sm:w-full'
+            window.innerWidth <= 640
+              ? " fixed inset-0 h-screen w-screen rounded-2xl "
+              : "inline-block align-bottom sm:max-w-lg sm:w-full"
           } bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle`}
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
-          
+          {/* Add dashed line at the top in mobile view */}
+          {window.innerWidth <= 640 && (
+            <div className="pt-4" onClick={onClose}>
+              <div className="border-t-2 border-gray-300 mx-[11rem] pt-2 "></div>
+            </div>
+          )}
+
           <div className="mt-4 mb-8">
             <button
               onClick={onClose}
@@ -39,7 +50,10 @@ const Modal = ({ data, onSelect, onClose }) => {
               <div
                 key={item.Id}
                 className="modal-item cursor-pointer px-2 py-4 hover:bg-gray-100 flex justify-between border-b-2"
-                onClick={() => onSelect(item)}
+                onClick={() =>  {
+                  onSelect(item)
+                  console.log(item)
+                }}
               >
                 <div>
                   <p>{item.StateName}</p>
@@ -47,7 +61,7 @@ const Modal = ({ data, onSelect, onClose }) => {
                 </div>
 
                 {/* Fix later */}
-                <div className='h-full pt-6'>  
+                <div className="h-full pt-6">
                   <p>{item.Code}</p>
                 </div>
               </div>
