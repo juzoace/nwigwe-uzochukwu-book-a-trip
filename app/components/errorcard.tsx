@@ -1,6 +1,6 @@
 // components/ErrorCard.js
 import React, { useEffect } from 'react';
-
+// @ts-ignore
 const ErrorCard = ({ message, onClose }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {

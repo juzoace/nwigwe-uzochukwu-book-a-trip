@@ -22,6 +22,7 @@ const Payment = () => {
   const ticketFare = searchParams.get("ticketFare");
   const serviceCharge = searchParams.get("serviceCharge");
   const totalFare = searchParams.get("totalFare");
+  // @ts-ignore
   const currentDate = new Date(date);
   const formattedDate = currentDate.toLocaleString("en", {
     weekday: "short",
@@ -32,7 +33,7 @@ const Payment = () => {
     <div className="bg-[#f7f7f7] p-4 ">
       {/* Button and header */}
       <div className="flex justify-between my-4">
-        <div className="w-1/5">
+        <div className="w-1/5 cursor-pointer">
           <img src="/svgs/back button.svg" onClick={() => router.push(`/listing?from=${from}&to=${to}&date=${date}&fromCountry=${fromCountry}&toCountry=${toCountry}&toCode=${toCode}&fromCode=${fromCode}&fromState=${fromState}&toState=${toState}&adults=${adults}&children=${children}&infants=${infants}`)} />
         </div>
         <div className="w-3/5 text-center">

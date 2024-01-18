@@ -6,6 +6,7 @@ import flightListing from "../../flight-listing.json";
 import FlightCard from "../components/flightcard";
 
 interface Listing {
+  Id: number;
   OperatingAirlineCode: string;
   OperatingAirlineName: string;
   MarketingAirlineCode: string;
@@ -45,20 +46,18 @@ export default function Listing() {
   const adults = searchParams.get("adults");
   const children = searchParams.get("children");
   const infants = searchParams.get("infants");
-  // console.log(date);
+  // @ts-ignore
   const currentDate = new Date(date);
   const formattedDate = currentDate.toLocaleString("en", {
     weekday: "short",
     day: "numeric",
     month: "short",
   });
-  console.log(formattedDate);
   useEffect(() => {
     filterData(from, to, date);
   }, []);
 
   const MakePayment = async (data: Listing) => {
-    console.log(data);
     //  const [loading, setLoading] = useState(false);
     setLoading(true);
 
@@ -80,8 +79,11 @@ export default function Listing() {
       const departureDate = new Date(flight.DepartureDate);
 
       return (
+        // @ts-ignore
         flight.DepartureAirportName.toLowerCase() === from.toLowerCase() &&
+        // @ts-ignore
         flight.ArrivalAirportName.toLowerCase() === to.toLowerCase() &&
+        // @ts-ignore
         departureDate >= new Date(date)
       );
     });
@@ -93,7 +95,7 @@ export default function Listing() {
     <div className="bg-[#f7f7f7] p-4 ">
       {/* Button and header */}
       <div className="flex justify-between my-4">
-        <div className="w-1/5">
+        <div className="w-1/5 cursor-pointer">
           <img src="/svgs/back button.svg" onClick={() => router.push("/")} />
         </div>
         <div className="w-3/5 text-center">
@@ -152,12 +154,9 @@ export default function Listing() {
         </div>
       </div>
 
-      <div className=" ">
-        {filteredData.map((flight, index) => (
-          <div className="">
-            <FlightCard key={index} data={flight} makepayment={MakePayment} />
-          </div>
-          
+      <div>
+        {filteredData.map((flight) => (
+          <FlightCard key={flight.Id} data={flight} makepayment={MakePayment} />
         ))}
       </div>
 

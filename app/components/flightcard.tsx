@@ -1,5 +1,6 @@
 import React from "react";
 
+// @ts-ignore
 const FlightCard = ({ data, makepayment }) => {
   return (
     <div className="bg-white mb-3 p-4  rounded-xl">
@@ -85,7 +86,7 @@ const FlightCard = ({ data, makepayment }) => {
 
         <div className="flex justify-center items-center my-4">
           <button
-            className=" w-[20rem] md:w-[27rem] rounded text-white py-3 bg-[#223E7C]"
+            className=" hover:bg-[#3b558d] w-[20rem] md:w-[27rem] rounded text-white py-3 bg-[#223E7C]"
             onClick={() => makepayment(data)}
           >
             Make Payment

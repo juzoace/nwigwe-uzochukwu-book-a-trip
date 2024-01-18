@@ -1,8 +1,64 @@
 // components/SlidableModal.js
-import React from "react";
+import React, {useEffect, useState} from "react";
 
-const Modal = ({ data, onSelect, onClose }) => {
-  console.log(data);
+interface AirportListing {
+  Id: number;
+  OperatingAirlineCode: string;
+  OperatingAirlineName: string;
+  MarketingAirlineCode: string;
+  MarketingAirlineName: string;
+  Duration: string;
+  StopOvers: number;
+  HasStopOver: boolean;
+  StopOverDuration: string;
+  FlightClass: string;
+  DepartureDate: string;
+  DepartureAirportCode: string;
+  DepartureAirportName: string;
+  DepartureAirportFullName: string;
+  ArrivalDate: string;
+  ArrivalAirportCode: string;
+  ArrivalAirportName: string;
+  ArrivalAirportFullName: string;
+  TicketFare: number;
+  ServiceCharge: number;
+  TotalFare: number;
+  Name?: string;
+  CountryCode?: string;
+  StateCode?: string;
+  StateName?: string;
+  Latitude?: string;
+  Code?: string;
+  Longitude?: string;
+  IsLocal?: string;
+  Country?: string;
+}
+
+
+interface ModalProps {
+  data: any;
+  onSelect: any;
+  onClose: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ data, onSelect, onClose }) => {
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="fixed inset-0 z-50 overflow-hidden ">
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -46,13 +102,12 @@ const Modal = ({ data, onSelect, onClose }) => {
           </div>
           <div className="modal-content p-2 h-[55rem] md:h-[45rem] overflow-y-auto">
             {/* Set a fixed height and allow vertical scrolling */}
-            {data.map((item) => (
+            {data.map((item: any) => (
               <div
                 key={item.Id}
                 className="modal-item cursor-pointer px-2 py-4 hover:bg-gray-100 flex justify-between border-b-2"
                 onClick={() =>  {
                   onSelect(item)
-                  console.log(item)
                 }}
               >
                 <div>

@@ -6,7 +6,6 @@ import SlidableModal from "./components/modal";
 import airports from "../airports.json";
 import { useRouter } from "next/navigation";
 
-// const { search } = useSearchContext();
 interface PassengerValues {
   adults: number;
   children: number;
@@ -118,7 +117,7 @@ export default function Home() {
   };
 
   const handleSubmit = async () => {
-    console.log("submit");
+
     if (
       passengerValues.from == "" ||
       passengerValues.to == "" ||
@@ -126,7 +125,6 @@ export default function Home() {
     ) {
       // Error due to invalid data
       setErrorData("Invalid data");
-      console.log("invalid data");
     } else {
       setLoading(true);
 
@@ -137,7 +135,7 @@ export default function Home() {
       );
     }
   };
-
+// @ts-ignore
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <button
       ref={ref}
@@ -150,24 +148,23 @@ export default function Home() {
   ));
 
   const handlePassengerChange = (type: string, value: number) => {
-    setPassengerValues((prevValues) => ({
+    setPassengerValues((prevValues: any) => ({
       ...prevValues,
       [type]: Math.max(0, prevValues[type] + value), // Ensure the value doesn't go below 0
     }));
   };
 
-  console.log(passengerValues)
 
   return (
-    <main className=" p-4 bg-[#f7f7f7]">
+    <main className=" p-4 bg-[#f7f7f7] ">
       <div className="flex flex-col items-center">
         <div className="my-4">
-          <h1 className="font-medium ">Search Flight</h1>
+          <h1 className="text-xl font-bold ">Search Flight</h1>
         </div>
 
         {/* From Destination */}
         <div
-          className="flex items-center gap-[1rem] bg-white w-[20rem] mt-3 px-[0.5rem] rounded h-12"
+          className="flex items-center gap-[1rem] bg-white w-[20rem] mt-3 px-[0.5rem] rounded h-12 cursor-pointer"
           onClick={() => setShowFromModal(true)}
         >
           <img
@@ -180,7 +177,7 @@ export default function Home() {
 
         {/* To Destination */}
         <div
-          className="flex items-center gap-[1rem] bg-white w-[20rem] my-3 px-[0.5rem] rounded h-12"
+          className="flex items-center gap-[1rem] bg-white w-[20rem] my-3 px-[0.5rem] rounded h-12 cursor-pointer"
           onClick={() => setShowToModal(true)}
         >
           <img
@@ -211,13 +208,18 @@ export default function Home() {
             {/* <p className="">{passengerValues.travelDate.toString()}</p> */}
           </div>
         </div>
+
       </div>
+
+
       <div className="flex flex-col items-center mb-4 mt-8">
         <div className="w-[20rem]">
           <img className="" src="svgs/passengers.svg" alt="Passengers" />
         </div>
       </div>
-      <div className="flex flex-col items-center mb-[12rem]">
+
+
+      <div className="flex flex-col items-center mb-[8rem] md:mb-[3rem]">
         {/* Adults */}
         <div className="flex justify-between items-center bg-white w-[20rem] rounded pl-4 pr-1 py-1">
           <div>
@@ -226,11 +228,13 @@ export default function Home() {
 
           <div className="flex items-center justify-between gap-6">
             <img
+              className="cursor-pointer"
               src="/svgs/minus.svg"
               onClick={() => handlePassengerChange("adults", -1)}
             />
             <p className="w-2 text-center">{passengerValues.adults}</p>
             <img
+              className="cursor-pointer"
               src="/svgs/addition.svg"
               onClick={() => handlePassengerChange("adults", 1)}
             />
@@ -238,18 +242,22 @@ export default function Home() {
         </div>
 
         {/* Children */}
-        <div className="flex justify-between items-center bg-white w-[20rem] my-3 rounded pl-4 pr-1 py-1">
+        <div className="flex justify-between items-center bg-white w-[20rem] my-3 md:my-1 rounded pl-4 pr-1 py-1">
           <div>
-            <img src="/svgs/children.svg" alt="Children" />
+            <img 
+            
+            src="/svgs/children.svg" alt="Children" />
           </div>
 
           <div className="flex items-center justify-between gap-6">
             <img
+              className="cursor-pointer"
               src="/svgs/minus.svg"
               onClick={() => handlePassengerChange("children", -1)}
             />
             <p className="w-2 text-center">{passengerValues.children}</p>
             <img
+              className="cursor-pointer"
               src="/svgs/addition.svg"
               onClick={() => handlePassengerChange("children", 1)}
             />
@@ -264,22 +272,26 @@ export default function Home() {
 
           <div className="flex items-center justify-between gap-6">
             <img
+              className="cursor-pointer"
               src="/svgs/minus.svg"
               onClick={() => handlePassengerChange("infants", -1)}
             />
             <p className="w-2 text-center">{passengerValues.infants}</p>
             <img
+              className="cursor-pointer"
               src="/svgs/addition.svg"
               onClick={() => handlePassengerChange("infants", 1)}
             />
           </div>
         </div>
       </div>
+
+
       <div
         className="flex flex-col items-center"
         onClick={() => handleSubmit()}
       >
-        <button className="w-[20rem] rounded text-white py-3 bg-[#223E7C]">
+        <button className="w-[20rem] rounded text-white py-3 bg-[#223E7C] hover:bg-[#3b558d]">
           Search Flight
         </button>
       </div>
@@ -300,12 +312,15 @@ export default function Home() {
       )}
       {/* Error cards */}
       {errorFrom && (
+        // @ts-ignore
         <ErrorCard message={errorFrom} onClose={() => setErrorFrom(null)} />
       )}
       {errorTo && (
+        // @ts-ignore
         <ErrorCard message={errorTo} onClose={() => setErrorTo(null)} />
       )}
       {errorData && (
+        // @ts-ignore
         <ErrorCard message={errorData} onClose={() => setErrorData(null)} />
       )}{" "}
       {loading && (
