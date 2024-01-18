@@ -1,4 +1,4 @@
-// components/ErrorCard.js
+"use client"
 import React, { useEffect } from 'react';
 // @ts-ignore
 const ErrorCard = ({ message, onClose }) => {
