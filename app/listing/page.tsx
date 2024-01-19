@@ -58,7 +58,6 @@ export default function Listing() {
   }, []);
 
   const MakePayment = async (data: Listing) => {
-    //  const [loading, setLoading] = useState(false);
     setLoading(true);
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -77,7 +76,13 @@ export default function Listing() {
     const filteredFlights = flightListing.filter((flight) => {
       // Convert ArrivalDate to a Date object for comparison
       const departureDate = new Date(flight.DepartureDate);
-
+      console.log(departureDate);
+      console.log( new Date(date)); // Selected date
+      console.log(departureDate >= new Date(date))
+      console.log(flight.DepartureAirportName.toLowerCase() === from.toLowerCase());
+      console.log(flight.ArrivalAirportName.toLowerCase() === to.toLowerCase())
+      console.log(flight.ArrivalAirportName.toLowerCase())
+      console.log(to.toLowerCase())
       return (
         // @ts-ignore
         flight.DepartureAirportName.toLowerCase() === from.toLowerCase() &&

@@ -11,14 +11,18 @@ const FlightCard = ({ data, makepayment }) => {
         </div>
         <div className=" px-4 md:flex md:justify-center  md:items-center">
           <div className="flex justify-between items-start gap-1">
+            
             {/* Left */}
             <div className="w-[6rem]">
               <p className="font-semibold leading-36 tracking-normal  md:text-xl">
-                {new Date(data.ArrivalDate).toLocaleTimeString("en-US", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: true,
+                {new Date(data.DepartureDate).toLocaleTimeString("en", {
+                  weekday: "short",
+                  day: "numeric",
+                  month: "short",
                 })}
+              </p>
+              <p>
+              
               </p>
             </div>
 
@@ -40,19 +44,21 @@ const FlightCard = ({ data, makepayment }) => {
                 </div>
               )}
             </div>
+
             {/* Right */}
             <div className="pl-3 md:pl-3 w-[8rem] md:w-[8rem] ">
               <div>
                 <p className="pl-3 font-semibold  leading-36 tracking-normal  md:text-xl">
-                  {new Date(data.DepartureDate).toLocaleTimeString("en-US", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: true,
+                  {new Date(data.ArrivalDate).toLocaleTimeString("en", {
+                    weekday: "short",
+                    day: "numeric",
+                    month: "short",
                   })}
                 </p>
               </div>
               {/* <p className="font-semibold text-xl leading-36 tracking-normal">{data.ArrivalAirportCode}</p> */}
             </div>
+
           </div>
         </div>
 
