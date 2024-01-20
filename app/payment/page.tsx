@@ -45,13 +45,13 @@ const Payment = () => {
         {/* Flight Details */}
       <div className="h-[14rem] md:h-[12rem] py-3 px-4 md:p-4 mb-8 bg-white md:flex md:justify-center  md:items-center rounded-xl">
         <div>
-          <div className="flex justify-center items-center mt-4">
-            <img className="mt-2" src="/svgs/flight distance.PNG" />
+          <div className="flex justify-center items-center mt-2">
+            <img className="mt-" src="/svgs/flight distance.PNG" />
           </div>
           <div className="flex justify-center items-center">
             <p>{flightClass} Class</p>
           </div>
-          <div className="flex justify-between items-center my-1">
+          <div className="flex justify-between items-center">
             <div className="h-[8rem]">
               <p className="font-bold text-2xl leading-36 tracking-normal">
                 {fromCode}

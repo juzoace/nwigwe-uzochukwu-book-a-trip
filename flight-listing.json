@@ -125,7 +125,7 @@
 		"StopOverDuration": "0h:30m",
 		"FlightClass": "First",
 		"DepartureDate": "2024-03-20T03:45:00",
-		"DepartureAirportCode": "SYD",
+		"DepartureAirportCode": "IBA",
 		"DepartureAirportName": "Ibadan Airport",
 		"DepartureAirportFullName": "Ibadan Airport (IBA)",
 		"ArrivalDate": "2024-03-20T04:45:00",
